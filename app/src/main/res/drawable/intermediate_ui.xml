@@ -4,5 +4,11 @@
 
     <gradient android:startColor="@color/colorPrimary"
         android:endColor="@color/colorPrimaryDark"
-        android:angle="270"/>
+        android:angle="0"/>
+
+    <corners
+        android:topLeftRadius="15dp"
+        android:topRightRadius="75dp"
+        android:bottomLeftRadius="15dp"
+        android:bottomRightRadius="15dp"/>
 </shape>
