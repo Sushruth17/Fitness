@@ -39,8 +39,8 @@ class HomeFragment : Fragment() {
         val collapsingToolbar =
             getView()?.findViewById(R.id.collapsing_toolbar) as CollapsingToolbarLayout
         collapsingToolbar.title = "Fitness"
-        collapsingToolbar.setCollapsedTitleTextColor(resources.getColor(android.R.color.white))
-        collapsingToolbar.setExpandedTitleColor(resources.getColor(android.R.color.white))
+        collapsingToolbar.setCollapsedTitleTextColor(resources.getColor(R.color.textPrimary))
+        collapsingToolbar.setExpandedTitleColor(resources.getColor(R.color.textPrimary))
         collapsingToolbar.setCollapsedTitleTypeface(Typeface.DEFAULT_BOLD)
         collapsingToolbar.setExpandedTitleTypeface(Typeface.DEFAULT_BOLD)
 

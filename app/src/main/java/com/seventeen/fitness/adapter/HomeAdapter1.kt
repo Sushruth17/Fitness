@@ -52,11 +52,11 @@ class HomeAdapter1: RecyclerView.Adapter<HomeAdapter1.ViewHolder>(){
         val unitData: String? = data[position]
         when(type) {
             UtilsString.BEGINNER ->
-                holder.unitRoot.setBackgroundResource(R.drawable.beginner_ui)
+                holder.unitRoot.setBackgroundResource(R.drawable.new_ui)
             UtilsString.INTERMEDIATE ->
                 holder.unitRoot.setBackgroundResource(R.drawable.intermediate_ui)
             UtilsString.ADVANCED ->
-                holder.unitRoot.setBackgroundResource(R.drawable.advanced_ui)
+                holder.unitRoot.setBackgroundResource(R.drawable.new_ui)
         }
         if (unitData != null) {
             holder.unitHomeTxt1.text = unitData
