@@ -14,5 +14,7 @@
     <color name="neonBlue">#00FFFF</color>
     <color name="neonPink">#FF00FF</color>
     <color name="textPurple">#9D00FF</color>
+    <color name="bg2">#D8F5F5F5</color>
+    <color name="profileTop">#ffffff</color>
 
 </resources>
