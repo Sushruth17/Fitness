@@ -1,5 +1,6 @@
 package com.seventeen.fitness.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.seventeen.fitness.R
+import com.seventeen.fitness.Settings
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
 
@@ -24,5 +27,16 @@ class ProfileFragment : Fragment() {
             textView.text = it
         })*/
         return inflater.inflate(R.layout.fragment_profile, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        btn_settings.setOnClickListener {
+            val intent = Intent(requireContext(), Settings::class.java)
+            startActivity(intent)
+        }
+
     }
 }

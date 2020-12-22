@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.seventeen.fitness.R
 import com.seventeen.fitness.adapter.HomeAdapter1
+import com.seventeen.fitness.adapter.HomeAdapter2
 import com.seventeen.fitness.utils.UtilsString
 
 
@@ -34,40 +35,15 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
-
-        val collapsingToolbar =
-            getView()?.findViewById(R.id.collapsing_toolbar) as CollapsingToolbarLayout
-        collapsingToolbar.title = "Fitness"
-        collapsingToolbar.setCollapsedTitleTextColor(resources.getColor(R.color.textPrimary))
-        collapsingToolbar.setExpandedTitleColor(resources.getColor(R.color.textPrimary))
-        collapsingToolbar.setCollapsedTitleTypeface(Typeface.DEFAULT_BOLD)
-        collapsingToolbar.setExpandedTitleTypeface(Typeface.DEFAULT_BOLD)
-
-        val fitnessTypeList = listOf("ABS","CHEST","ARM","LEG","SHOULDER \n & BACK")
+        val fitnessTypeList = listOf("1", "2", "3", "4", "5", "6")
 
 
-        val rvHome1 = getView()?.findViewById<RecyclerView>(R.id.rv_home_1)
-        val homeAdapter1 = HomeAdapter1()
-        homeAdapter1.setDataCustom(fitnessTypeList,UtilsString.BEGINNER)
+        val rvHome1 = getView()?.findViewById<RecyclerView>(R.id.rv_stories)
+        val homeAdapter1 = HomeAdapter2()
+        homeAdapter1.setDataCustom(fitnessTypeList)
         rvHome1?.layoutManager  = LinearLayoutManager(
             activity, LinearLayoutManager.HORIZONTAL, false)
         rvHome1?.adapter = homeAdapter1
-
-
-        val rvHome2 = getView()?.findViewById<RecyclerView>(R.id.rv_home_2)
-        val homeAdapter2 = HomeAdapter1()
-        homeAdapter2.setDataCustom(fitnessTypeList,UtilsString.INTERMEDIATE)
-        rvHome2?.layoutManager  = LinearLayoutManager(
-            activity, LinearLayoutManager.HORIZONTAL, false)
-        rvHome2?.adapter = homeAdapter2
-
-        val rvHome3 = getView()?.findViewById<RecyclerView>(R.id.rv_home_3)
-        val homeAdapter3 = HomeAdapter1()
-        homeAdapter3.setDataCustom(fitnessTypeList,UtilsString.ADVANCED)
-        rvHome3?.layoutManager  = LinearLayoutManager(
-            activity, LinearLayoutManager.HORIZONTAL, false)
-        rvHome3?.adapter = homeAdapter3
 
     }
 }

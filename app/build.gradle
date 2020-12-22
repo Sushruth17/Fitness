@@ -31,6 +31,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
 dependencies {
@@ -54,5 +55,7 @@ dependencies {
 
     implementation platform('com.google.firebase:firebase-bom:26.2.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'xyz.schwaab:avvylib:1.1.0'
 
 }
