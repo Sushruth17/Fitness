@@ -9,6 +9,7 @@ class UtilsString {
         const val BEGINNER = "BEGINNER"
         const val INTERMEDIATE = "INTERMEDIATE"
         const val ADVANCED = "ADVANCED"
+        const val LOGGED_IN = "LOGGED_IN"
 
     }
 }

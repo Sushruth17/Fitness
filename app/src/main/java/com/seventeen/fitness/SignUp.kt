@@ -6,10 +6,11 @@ import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.seventeen.fitness.utils.PrefUtils
+import com.seventeen.fitness.utils.UtilsString
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 
@@ -49,15 +50,18 @@ class SignUp : AppCompatActivity() {
                         val user = mAuth?.currentUser
                         val uid = user!!.uid
                         mDatabase.child(uid).child("Users").setValue(username)
+                        PrefUtils.save(this, UtilsString.LOGGED_IN, true)
                         startActivity(Intent(this, MainActivity::class.java))
                         Toast.makeText(this, "Successfully registered", Toast.LENGTH_LONG).show()
                     } else {
-                        Log.i(TAG, "signUp: "+task.exception)
-                        Toast.makeText(
+                        Log.i(TAG, "User Authentication Failed :"+task.exception?.message)
+                        Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
+
+/*                        Toast.makeText(
                             this,
                             "Error registering, try again later",
                             Toast.LENGTH_LONG
-                        ).show()
+                        ).show()*/
                     }
                 }
         }else {

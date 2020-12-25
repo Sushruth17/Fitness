@@ -7,6 +7,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.seventeen.fitness.utils.PrefUtils
+import com.seventeen.fitness.utils.UtilsString
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -49,13 +51,13 @@ class Login : AppCompatActivity() {
             mAuth?.signInWithEmailAndPassword(email, password)
                 ?.addOnCompleteListener ( this) { task ->
                     if (task.isSuccessful) {
+                        PrefUtils.save(this, UtilsString.LOGGED_IN, true)
                         startActivity(Intent(this, MainActivity::class.java))
                         finish()
                         Toast.makeText(this, "Successfully Logged in", Toast.LENGTH_LONG).show()
                     } else {
                         Log.i(TAG, "login failure-->: "+task.exception)
-                        Toast.makeText(this, "Error Logging in", Toast.LENGTH_SHORT).show()
-                    }
+                        Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show() }
                 }
 
         }else {

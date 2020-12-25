@@ -34,27 +34,6 @@ class DashboardFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
-/*    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        dark_switch.isChecked =
-            PrefUtils.getValueBoolien(requireContext(), UtilsString.NIGHT_MODE, false)
-
-        dark_switch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                mode = AppCompatDelegate.MODE_NIGHT_YES
-                PrefUtils.save(requireContext(), UtilsString.NIGHT_MODE, true)
-                AppCompatDelegate.setDefaultNightMode(mode)
-            }
-            else{
-                mode = AppCompatDelegate.MODE_NIGHT_NO
-                PrefUtils.save(requireContext(), UtilsString.NIGHT_MODE, false)
-                AppCompatDelegate.setDefaultNightMode(mode)
-            }
-        }
-
-
-    }*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -64,8 +43,8 @@ class DashboardFragment : Fragment() {
         val collapsingToolbar =
             getView()?.findViewById(R.id.collapsing_toolbar) as CollapsingToolbarLayout
         collapsingToolbar.title = "Fitness"
-        collapsingToolbar.setCollapsedTitleTextColor(resources.getColor(R.color.textPrimary))
-        collapsingToolbar.setExpandedTitleColor(resources.getColor(R.color.textPrimary))
+        collapsingToolbar.setCollapsedTitleTextColor(resources.getColor(R.color.colorPrimary))
+        collapsingToolbar.setExpandedTitleColor(resources.getColor(R.color.colorPrimary))
         collapsingToolbar.setCollapsedTitleTypeface(Typeface.DEFAULT_BOLD)
         collapsingToolbar.setExpandedTitleTypeface(Typeface.DEFAULT_BOLD)
 
@@ -73,7 +52,7 @@ class DashboardFragment : Fragment() {
 
 
         val rvHome1 = getView()?.findViewById<RecyclerView>(R.id.rv_home_1)
-        val homeAdapter1 = HomeAdapter1()
+        val homeAdapter1 = HomeAdapter1(requireContext())
         homeAdapter1.setDataCustom(fitnessTypeList,UtilsString.BEGINNER)
         rvHome1?.layoutManager  = LinearLayoutManager(
             activity, LinearLayoutManager.HORIZONTAL, false)
@@ -81,14 +60,15 @@ class DashboardFragment : Fragment() {
 
 
         val rvHome2 = getView()?.findViewById<RecyclerView>(R.id.rv_home_2)
-        val homeAdapter2 = HomeAdapter1()
+        val homeAdapter2 = HomeAdapter1(requireContext())
         homeAdapter2.setDataCustom(fitnessTypeList,UtilsString.INTERMEDIATE)
         rvHome2?.layoutManager  = LinearLayoutManager(
             activity, LinearLayoutManager.HORIZONTAL, false)
         rvHome2?.adapter = homeAdapter2
 
+
         val rvHome3 = getView()?.findViewById<RecyclerView>(R.id.rv_home_3)
-        val homeAdapter3 = HomeAdapter1()
+        val homeAdapter3 = HomeAdapter1(requireContext())
         homeAdapter3.setDataCustom(fitnessTypeList,UtilsString.ADVANCED)
         rvHome3?.layoutManager  = LinearLayoutManager(
             activity, LinearLayoutManager.HORIZONTAL, false)

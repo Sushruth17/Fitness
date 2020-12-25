@@ -1,17 +1,19 @@
 package com.seventeen.fitness.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
 import com.seventeen.fitness.R
 import com.seventeen.fitness.utils.UtilsString
 import kotlinx.android.synthetic.main.unit_home_1.view.*
 
 
-class HomeAdapter1: RecyclerView.Adapter<HomeAdapter1.ViewHolder>(){
+class HomeAdapter1(val context: Context): RecyclerView.Adapter<HomeAdapter1.ViewHolder>(){
 
 
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -49,19 +51,24 @@ class HomeAdapter1: RecyclerView.Adapter<HomeAdapter1.ViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val unitData: String? = data[position]
+        val unitData: String = data[position]
         when(type) {
-            UtilsString.BEGINNER ->
-                holder.unitRoot.setBackgroundResource(R.drawable.new_ui)
-            UtilsString.INTERMEDIATE ->
-                holder.unitRoot.setBackgroundResource(R.drawable.intermediate_ui)
-            UtilsString.ADVANCED ->
-                holder.unitRoot.setBackgroundResource(R.drawable.new_ui)
-        }
-        if (unitData != null) {
-            holder.unitHomeTxt1.text = unitData
+            UtilsString.BEGINNER -> {
+                holder.unitRoot.setBackgroundResource(R.drawable.dashboad_ui1)
+                holder.unitHomeTxt1.setTextColor(context.resources.getColor(R.color.colorPrimary))
 
+            }
+            UtilsString.INTERMEDIATE -> {
+                holder.unitRoot.setBackgroundResource(R.drawable.dashboad_ui2)
+//                holder.unitHomeTxt1.setTextColor(context.resources.getColor(R.color.colorPrimary))
+            }
+            UtilsString.ADVANCED -> {
+                holder.unitRoot.setBackgroundResource(R.drawable.dashboad_ui1)
+                holder.unitHomeTxt1.setTextColor(context.resources.getColor(R.color.colorPrimary))
+
+            }
         }
+        holder.unitHomeTxt1.text = unitData
     }
 
 }
