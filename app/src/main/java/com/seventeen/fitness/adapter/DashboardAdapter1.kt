@@ -6,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
 import com.seventeen.fitness.R
 import com.seventeen.fitness.utils.UtilsString
 import kotlinx.android.synthetic.main.unit_home_1.view.*
 
 
-class HomeAdapter1(val context: Context): RecyclerView.Adapter<HomeAdapter1.ViewHolder>(){
+class DashboardAdapter1(val context: Context): RecyclerView.Adapter<DashboardAdapter1.ViewHolder>(){
 
 
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

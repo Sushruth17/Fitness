@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/bg2"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.dashboard.DashboardFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -94,7 +94,7 @@
                 android:textColor="@color/colorAccent"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_home_1"
+                android:id="@+id/rv_dashboard_1"
                 android:layout_marginTop="10dp"
                 android:paddingStart="7.5dp"
                 android:paddingEnd="7.5dp"
@@ -114,7 +114,7 @@
                 android:textColor="@color/colorAccent"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_home_2"
+                android:id="@+id/rv_dashboard_2"
                 android:layout_marginTop="10dp"
                 android:paddingStart="7.5dp"
                 android:paddingEnd="7.5dp"
@@ -134,7 +134,7 @@
                 android:textColor="@color/colorAccent"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_home_3"
+                android:id="@+id/rv_dashboard_3"
                 android:layout_marginTop="10dp"
                 android:paddingStart="7.5dp"
                 android:paddingEnd="7.5dp"

@@ -1,20 +1,15 @@
 package com.seventeen.fitness.ui.home
 
-import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.seventeen.fitness.R
-import com.seventeen.fitness.adapter.HomeAdapter1
 import com.seventeen.fitness.adapter.HomeAdapter2
-import com.seventeen.fitness.utils.UtilsString
 
 
 class HomeFragment : Fragment() {

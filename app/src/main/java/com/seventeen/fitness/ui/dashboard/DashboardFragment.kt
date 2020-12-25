@@ -11,14 +11,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.seventeen.fitness.R
-import com.seventeen.fitness.adapter.HomeAdapter1
+import com.seventeen.fitness.adapter.DashboardAdapter1
 import com.seventeen.fitness.utils.UtilsString
 import kotlin.properties.Delegates
 
 class DashboardFragment : Fragment() {
 
     private lateinit var dashboardViewModel: DashboardViewModel
-    private var mode by Delegates.notNull<Int>()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -27,10 +26,6 @@ class DashboardFragment : Fragment() {
     ): View? {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        /*val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })*/
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
@@ -51,28 +46,28 @@ class DashboardFragment : Fragment() {
         val fitnessTypeList = listOf("ABS","CHEST","ARM","LEG","SHOULDER \n & BACK")
 
 
-        val rvHome1 = getView()?.findViewById<RecyclerView>(R.id.rv_home_1)
-        val homeAdapter1 = HomeAdapter1(requireContext())
-        homeAdapter1.setDataCustom(fitnessTypeList,UtilsString.BEGINNER)
-        rvHome1?.layoutManager  = LinearLayoutManager(
+        val rvDashboard1 = getView()?.findViewById<RecyclerView>(R.id.rv_dashboard_1)
+        val dashboardAdapter1 = DashboardAdapter1(requireContext())
+        dashboardAdapter1.setDataCustom(fitnessTypeList,UtilsString.BEGINNER)
+        rvDashboard1?.layoutManager  = LinearLayoutManager(
             activity, LinearLayoutManager.HORIZONTAL, false)
-        rvHome1?.adapter = homeAdapter1
+        rvDashboard1?.adapter = dashboardAdapter1
 
 
-        val rvHome2 = getView()?.findViewById<RecyclerView>(R.id.rv_home_2)
-        val homeAdapter2 = HomeAdapter1(requireContext())
-        homeAdapter2.setDataCustom(fitnessTypeList,UtilsString.INTERMEDIATE)
-        rvHome2?.layoutManager  = LinearLayoutManager(
+        val rvDashboard2 = getView()?.findViewById<RecyclerView>(R.id.rv_dashboard_2)
+        val dashboardAdapter2 = DashboardAdapter1(requireContext())
+        dashboardAdapter2.setDataCustom(fitnessTypeList,UtilsString.INTERMEDIATE)
+        rvDashboard2?.layoutManager  = LinearLayoutManager(
             activity, LinearLayoutManager.HORIZONTAL, false)
-        rvHome2?.adapter = homeAdapter2
+        rvDashboard2?.adapter = dashboardAdapter2
 
 
-        val rvHome3 = getView()?.findViewById<RecyclerView>(R.id.rv_home_3)
-        val homeAdapter3 = HomeAdapter1(requireContext())
-        homeAdapter3.setDataCustom(fitnessTypeList,UtilsString.ADVANCED)
-        rvHome3?.layoutManager  = LinearLayoutManager(
+        val rvDashboard3 = getView()?.findViewById<RecyclerView>(R.id.rv_dashboard_3)
+        val dashboardAdapter3 = DashboardAdapter1(requireContext())
+        dashboardAdapter3.setDataCustom(fitnessTypeList,UtilsString.ADVANCED)
+        rvDashboard3?.layoutManager  = LinearLayoutManager(
             activity, LinearLayoutManager.HORIZONTAL, false)
-        rvHome3?.adapter = homeAdapter3
+        rvDashboard3?.adapter = dashboardAdapter3
 
     }
 }
