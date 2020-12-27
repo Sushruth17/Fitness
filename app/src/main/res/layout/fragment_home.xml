@@ -77,6 +77,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/ll_stories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/home_top_ui"
@@ -104,6 +105,17 @@
             android:orientation="horizontal"/>
 
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_posts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="300dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"/>
 
 
 

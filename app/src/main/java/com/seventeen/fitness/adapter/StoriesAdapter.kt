@@ -3,15 +3,13 @@ package com.seventeen.fitness.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.seventeen.fitness.R
-import kotlinx.android.synthetic.main.unit_home_1.view.*
 import kotlinx.android.synthetic.main.unit_story.view.*
 
 
-class HomeAdapter2: RecyclerView.Adapter<HomeAdapter2.ViewHolder>(){
+class StoriesAdapter: RecyclerView.Adapter<StoriesAdapter.ViewHolder>(){
 
 
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
