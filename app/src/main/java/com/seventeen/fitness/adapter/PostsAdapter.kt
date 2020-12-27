@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -31,6 +32,9 @@ class PostsAdapter(private val activity: Context,
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
+
+        val bounceAnim = AnimationUtils.loadAnimation(activity, R.anim.bounce)
+
         p0.name.text = postList[p1].name
         p0.likes.text = postList[p1].likes +" "+"likes"
         p0.description.text = postList[p1].description
@@ -44,6 +48,7 @@ class PostsAdapter(private val activity: Context,
             .into(p0.photo)
 
         p0.like.setOnClickListener {
+            p0.like.startAnimation(bounceAnim)
             if (!liked) { liked = true
                 p0.like.setImageResource(R.drawable.ic_liked) }
             else{ liked = false
@@ -51,6 +56,7 @@ class PostsAdapter(private val activity: Context,
         }
 
         p0.save.setOnClickListener {
+            p0.save.startAnimation(bounceAnim)
             if (!saved) { saved = true
                 p0.save.setImageResource(R.drawable.ic_saved) }
             else{ saved = false
