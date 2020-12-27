@@ -8,12 +8,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.gms.common.api.BooleanResult
 import com.seventeen.fitness.R
 import com.seventeen.fitness.model.Post
 
 class PostsAdapter(private val activity: Context,
                   private val postList: ArrayList<Post>)
     : RecyclerView.Adapter<PostsAdapter.ViewHolder>() {
+
+    var liked: Boolean = false
+    var saved: Boolean = false
+
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val view = LayoutInflater.from(p0.context).inflate(R.layout.unit_posts, p0, false)
@@ -37,6 +42,23 @@ class PostsAdapter(private val activity: Context,
         Glide.with(activity)
             .load(postList[p1].photo)
             .into(p0.photo)
+
+        p0.like.setOnClickListener {
+            if (!liked) { liked = true
+                p0.like.setImageResource(R.drawable.ic_liked) }
+            else{ liked = false
+                p0.like.setImageResource(R.drawable.ic_like) }
+        }
+
+        p0.save.setOnClickListener {
+            if (!saved) { saved = true
+                p0.save.setImageResource(R.drawable.ic_saved) }
+            else{ saved = false
+                p0.save.setImageResource(R.drawable.ic_save) }
+        }
+
+
+
     }
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name = itemView.findViewById<TextView>(R.id.brand_name)
@@ -44,5 +66,8 @@ class PostsAdapter(private val activity: Context,
         val photo = itemView.findViewById<ImageView>(R.id.post_img)
         val likes = itemView.findViewById<TextView>(R.id.likes_txt)
         val description = itemView.findViewById<TextView>(R.id.description_txt)
+        val like = itemView.findViewById<ImageView>(R.id.like)
+        val save = itemView.findViewById<ImageView>(R.id.save)
+
     }
 }

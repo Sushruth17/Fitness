@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="55dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/logo"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -56,42 +56,42 @@
         android:layout_below="@+id/post_img">
 
         <ImageView
-            android:id="@+id/heart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/like"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="15dp"
-            android:src="@drawable/ic_menu"
+            android:src="@drawable/ic_like"
             />
 
         <ImageView
             android:id="@+id/reply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/heart"
+            android:layout_toEndOf="@+id/like"
             android:layout_marginStart="15dp"
-            android:src="@drawable/ic_menu"
+            android:src="@drawable/ic_comment"
             />
 
         <ImageView
             android:id="@+id/send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/reply"
             android:layout_marginStart="15dp"
-            android:src="@drawable/ic_menu"
+            android:src="@drawable/ic_share"
             />
 
         <ImageView
-            android:id="@+id/bookmark"
+            android:id="@+id/save"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="15dp"
-            android:src="@drawable/ic_menu"
+            android:src="@drawable/ic_save"
             />
 
     </RelativeLayout>
@@ -114,23 +114,25 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="5dp"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:textSize="13sp"
         android:textColor="@color/textPrimary"/>
 
     <RelativeLayout
-        android:id="@+id/comments_latout"
+        android:id="@+id/comments_layout"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@+id/description_txt"
         android:layout_marginTop="10dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_pic"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="15dp"
-            android:src="@drawable/ic_menu"
+            android:src="@drawable/default_img"
             />
 
         <EditText
