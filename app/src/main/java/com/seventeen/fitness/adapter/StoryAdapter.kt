@@ -9,7 +9,7 @@ import com.seventeen.fitness.R
 import kotlinx.android.synthetic.main.unit_story.view.*
 
 
-class StoriesAdapter: RecyclerView.Adapter<StoriesAdapter.ViewHolder>(){
+class StoryAdapter: RecyclerView.Adapter<StoryAdapter.ViewHolder>(){
 
 
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

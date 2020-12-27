@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.seventeen.fitness.R
-import com.seventeen.fitness.adapter.PostsAdapter
-import com.seventeen.fitness.adapter.StoriesAdapter
+import com.seventeen.fitness.adapter.PostAdapter
+import com.seventeen.fitness.adapter.StoryAdapter
 import com.seventeen.fitness.model.Post
 
 
@@ -51,13 +51,13 @@ class HomeFragment : Fragment() {
             postList.add(Post(post[j].id, post[j].name, post[j].logo, post[j].photo, post[j].likes, post[j].description))
 
 
-        val storyAdapter = StoriesAdapter()
+        val storyAdapter = StoryAdapter()
         storyAdapter.setDataCustom(fitnessTypeList)
         rvStories?.layoutManager  = LinearLayoutManager(
             activity, LinearLayoutManager.HORIZONTAL, false)
         rvStories?.adapter = storyAdapter
 
-        val postAdapter = PostsAdapter(requireActivity(), postList)
+        val postAdapter = PostAdapter(requireActivity(), postList)
         rvPosts?.layoutManager  = LinearLayoutManager(
             activity, LinearLayoutManager.VERTICAL, false)
         rvPosts?.adapter = postAdapter

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    android:id="@+id/post_root"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -42,18 +43,33 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/layout_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/post_header_layout">
+
     <ImageView
         android:id="@+id/post_img"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/post_header_layout"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/like_on_post"
+        android:visibility="gone"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_liked"
+        android:layout_centerInParent="true"
         />
+    </RelativeLayout>
+
+
 
     <RelativeLayout
         android:id="@+id/post_footer_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/post_img">
+        android:layout_below="@+id/layout_post">
 
         <ImageView
             android:id="@+id/like"
@@ -106,24 +122,42 @@
         android:textStyle="bold"
         android:textColor="@color/textPrimary"/>
 
-    <TextView
-        android:id="@+id/description_txt"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/layout_description"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/likes_txt"
+        android:orientation="horizontal"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="5dp"
-        android:maxLines="1"
+        android:layout_marginTop="5dp">
+
+    <TextView
+        android:id="@+id/description_txt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.85"
+        android:singleLine="true"
         android:ellipsize="end"
         android:textSize="13sp"
         android:textColor="@color/textPrimary"/>
+
+    <TextView
+        android:id="@+id/description_more"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.15"
+        android:textSize="13sp"
+        android:text="more"
+        android:textColor="@color/textSecondary"/>
+
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/comments_layout"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/description_txt"
+        android:layout_below="@+id/layout_description"
         android:layout_marginTop="10dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
