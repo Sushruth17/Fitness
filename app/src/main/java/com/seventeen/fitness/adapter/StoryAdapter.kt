@@ -26,7 +26,7 @@ class StoryAdapter: RecyclerView.Adapter<StoryAdapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             ViewHolder {
             view = ViewHolder(LayoutInflater.from(parent.context).inflate
-                            (R.layout.unit_story, parent, false))
+                            (R.layout.unit_story_2, parent, false))
         return view
     }
 

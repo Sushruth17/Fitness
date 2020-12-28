@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.seventeen.fitness.R
 import com.seventeen.fitness.adapter.PostAdapter
-import com.seventeen.fitness.adapter.StoryAdapter
+import com.seventeen.fitness.adapter.StoryAdapter2
 import com.seventeen.fitness.model.Post
+import com.seventeen.fitness.model.Story
 
 
 class HomeFragment : Fragment() {
@@ -42,17 +43,20 @@ class HomeFragment : Fragment() {
         val postJSON: String? = activity?.assets?.open("post.json")?.bufferedReader().use { it?.readText() }
         val post = Gson().fromJson(postJSON, Array<Post>::class.java)
 
-        val postList = ArrayList<Post>()
+        val storyJSON: String? = activity?.assets?.open("story.json")?.bufferedReader().use { it?.readText() }
+        val story = Gson().fromJson(storyJSON, Array<Story>::class.java)
 
-/*        for (i in 0 until status.size)
-            statusList.add(InstaStatus(status[i].id, status[i].name, status[i].picture))*/
+        val postList = ArrayList<Post>()
+        val storyList = ArrayList<Story>()
+
+        for (i in story.indices)
+            storyList.add(Story(story[i].id, story[i].name, story[i].picture))
 
         for (j in post.indices)
             postList.add(Post(post[j].id, post[j].name, post[j].logo, post[j].photo, post[j].likes, post[j].description))
 
-
-        val storyAdapter = StoryAdapter()
-        storyAdapter.setDataCustom(fitnessTypeList)
+        val storyAdapter = StoryAdapter2(requireActivity(), storyList)
+//        storyAdapter.setDataCustom(fitnessTypeList)
         rvStories?.layoutManager  = LinearLayoutManager(
             activity, LinearLayoutManager.HORIZONTAL, false)
         rvStories?.adapter = storyAdapter

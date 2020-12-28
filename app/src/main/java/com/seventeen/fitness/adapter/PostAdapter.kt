@@ -26,8 +26,7 @@ class PostAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-            R.layout.unit_post,
-            parent, false
+            R.layout.unit_post, parent, false
         )
         return ViewHolder(view)
     }
@@ -38,7 +37,7 @@ class PostAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val bounceAnim = AnimationUtils.loadAnimation(activity, R.anim.pop)
+        val popAnim = AnimationUtils.loadAnimation(activity, R.anim.pop)
 
         holder.name.text = postList[position].name
         holder.likes.text = postList[position].likes +" "+"likes"
@@ -53,7 +52,7 @@ class PostAdapter(
             .into(holder.photo)
 
         holder.like.setOnClickListener {
-            holder.like.startAnimation(bounceAnim)
+            holder.like.startAnimation(popAnim)
             if (!liked) { liked = true
                 holder.like.setImageResource(R.drawable.ic_liked) }
             else{ liked = false
@@ -61,7 +60,7 @@ class PostAdapter(
         }
 
         holder.save.setOnClickListener {
-            holder.save.startAnimation(bounceAnim)
+            holder.save.startAnimation(popAnim)
             if (!saved) { saved = true
                 holder.save.setImageResource(R.drawable.ic_saved) }
             else{ saved = false
@@ -71,12 +70,13 @@ class PostAdapter(
         holder.photo.setOnClickListener(object : DoubleClickListener() {
             override fun onDoubleClick(v: View) {
                 holder.likeOnPost.visibility = View.VISIBLE
-                holder.likeOnPost.startAnimation(bounceAnim)
+                holder.likeOnPost.startAnimation(popAnim)
+                holder.like.startAnimation(popAnim)
                 liked = true
                 holder.like.setImageResource(R.drawable.ic_liked)
                 Handler().postDelayed({
                     holder.likeOnPost.visibility = View.GONE
-                }, 1000)
+                },1000)
             }
         })
 
@@ -84,9 +84,8 @@ class PostAdapter(
             holder.description.isSingleLine = false
             holder.moreDescriptionTxt.visibility = View.GONE
         }
-
-
     }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name = itemView.findViewById<TextView>(R.id.brand_name)
         val logo = itemView.findViewById<ImageView>(R.id.logo)
