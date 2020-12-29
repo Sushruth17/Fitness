@@ -55,7 +55,7 @@ PrefUtils(val context: Context) {
             return sharedPref.getInt(KEY_NAME, 0)
         }
 
-        fun getValueBoolien(context: Context,KEY_NAME: String, defaultValue: Boolean): Boolean {
+        fun getValueBoolean(context: Context, KEY_NAME: String, defaultValue: Boolean): Boolean {
             val sharedPref: SharedPreferences =
                 context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
             return sharedPref.getBoolean(KEY_NAME, defaultValue)

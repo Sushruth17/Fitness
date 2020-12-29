@@ -1,4 +1,4 @@
-package com.seventeen.fitness.ui.home
+package com.seventeen.fitness.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,19 +14,16 @@ import com.seventeen.fitness.adapter.PostAdapter
 import com.seventeen.fitness.adapter.StoryAdapter2
 import com.seventeen.fitness.model.Post
 import com.seventeen.fitness.model.Story
+import com.seventeen.fitness.ui.home.HomeViewModel
 
 
 class HomeFragment : Fragment() {
-
-    private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
         return inflater.inflate(R.layout.fragment_home, container, false)
     }

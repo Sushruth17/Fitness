@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (PrefUtils.getValueBoolien(this, UtilsString.NIGHT_MODE, false)){
+        if (PrefUtils.getValueBoolean(this, UtilsString.NIGHT_MODE, false)){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
         else{

@@ -31,7 +31,7 @@ class SplashScreen : AppCompatActivity() {
 
         // we used the postDelayed(Runnable, time) method
         // to send a message with a delayed time.
-        val isLoggedIn = PrefUtils.getValueBoolien(this, UtilsString.LOGGED_IN, false)
+        val isLoggedIn = PrefUtils.getValueBoolean(this, UtilsString.LOGGED_IN, false)
         Handler(Looper.getMainLooper()).postDelayed({
             if (isLoggedIn) {
                 val intent = Intent(this, MainActivity::class.java)

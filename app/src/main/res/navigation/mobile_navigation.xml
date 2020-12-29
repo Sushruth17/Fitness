@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.seventeen.fitness.ui.home.HomeFragment"
+        android:name="com.seventeen.fitness.fragments.HomeFragment"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.seventeen.fitness.ui.dashboard.DashboardFragment"
+        android:name="com.seventeen.fitness.fragments.DashboardFragment"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.seventeen.fitness.ui.profile.ProfileFragment"
+        android:name="com.seventeen.fitness.fragments.ProfileFragment"
         tools:layout="@layout/fragment_profile" />
 </navigation>

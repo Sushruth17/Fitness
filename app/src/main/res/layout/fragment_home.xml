@@ -11,7 +11,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/bg2"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".fragments.HomeFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/home_toolbar"

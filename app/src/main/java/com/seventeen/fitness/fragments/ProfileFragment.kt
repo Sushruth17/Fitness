@@ -1,4 +1,4 @@
-package com.seventeen.fitness.ui.profile
+package com.seventeen.fitness.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,23 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import com.seventeen.fitness.R
 import com.seventeen.fitness.Settings
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var profileViewModel: ProfileViewModel
+//    private lateinit var profileViewModel: ProfileViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        profileViewModel =
+  /*      profileViewModel =
                 ViewModelProviders.of(this).get(ProfileViewModel::class.java)
-        /*        val textView: TextView = root.findViewById(R.id.text_profile)
+        *//*        val textView: TextView = root.findViewById(R.id.text_profile)
         profileViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })*/

@@ -1,4 +1,4 @@
-package com.seventeen.fitness.ui.dashboard
+package com.seventeen.fitness.fragments
 
 import android.graphics.Typeface
 import android.os.Bundle
@@ -6,26 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.seventeen.fitness.R
 import com.seventeen.fitness.adapter.DashboardAdapter1
 import com.seventeen.fitness.utils.UtilsString
-import kotlin.properties.Delegates
 
 class DashboardFragment : Fragment() {
-
-    private lateinit var dashboardViewModel: DashboardViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel::class.java)
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 

@@ -16,7 +16,7 @@ class Settings : AppCompatActivity() {
 
 
         dark_switch.isChecked =
-            PrefUtils.getValueBoolien(this, UtilsString.NIGHT_MODE, false)
+            PrefUtils.getValueBoolean(this, UtilsString.NIGHT_MODE, false)
 
         dark_switch.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
