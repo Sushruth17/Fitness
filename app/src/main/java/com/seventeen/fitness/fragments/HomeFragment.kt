@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
@@ -14,7 +13,6 @@ import com.seventeen.fitness.adapter.PostAdapter
 import com.seventeen.fitness.adapter.StoryAdapter2
 import com.seventeen.fitness.model.Post
 import com.seventeen.fitness.model.Story
-import com.seventeen.fitness.ui.home.HomeViewModel
 
 
 class HomeFragment : Fragment() {
@@ -30,9 +28,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val fitnessTypeList = listOf("1", "2", "3", "4", "5", "6")
-        val listSamp = arrayListOf<Post>()
 
         val rvStories = getView()?.findViewById<RecyclerView>(R.id.rv_stories)
         val rvPosts = getView()?.findViewById<RecyclerView>(R.id.rv_posts)

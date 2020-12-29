@@ -49,19 +49,17 @@ class SignUp : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val user = mAuth?.currentUser
                         val uid = user!!.uid
-                        mDatabase.child(uid).child("Users").setValue(username)
+                        mDatabase.child(uid).child("userName").setValue(username)
+                        mDatabase.child(uid).child("userId").setValue(uid)
+                        mDatabase.child(uid).child("followers").setValue("0")
+                        mDatabase.child(uid).child("following").setValue("0")
+                        mDatabase.child(uid).child("statusProfileImg").setValue(UtilsString.NOT_UPLOADED)
                         PrefUtils.save(this, UtilsString.LOGGED_IN, true)
                         startActivity(Intent(this, MainActivity::class.java))
                         Toast.makeText(this, "Successfully registered", Toast.LENGTH_LONG).show()
                     } else {
                         Log.i(TAG, "User Authentication Failed :"+task.exception?.message)
                         Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
-
-/*                        Toast.makeText(
-                            this,
-                            "Error registering, try again later",
-                            Toast.LENGTH_LONG
-                        ).show()*/
                     }
                 }
         }else {

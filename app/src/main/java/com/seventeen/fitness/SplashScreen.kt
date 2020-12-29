@@ -16,21 +16,15 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        // This is used to hide the status bar and make
-        // the splash screen as a full screen activity.
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        // HERE WE ARE TAKING THE REFERENCE OF OUR IMAGE
-        // SO THAT WE CAN PERFORM ANIMATION USING THAT IMAGE
         val backgroundImage: ImageView = findViewById(R.id.SplashScreenImage)
         val slideAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         backgroundImage.startAnimation(slideAnimation)
 
-        // we used the postDelayed(Runnable, time) method
-        // to send a message with a delayed time.
         val isLoggedIn = PrefUtils.getValueBoolean(this, UtilsString.LOGGED_IN, false)
         Handler(Looper.getMainLooper()).postDelayed({
             if (isLoggedIn) {
@@ -42,6 +36,6 @@ class SplashScreen : AppCompatActivity() {
                 startActivity(Intent(this, Login::class.java))
                 finish()
             }
-        }, 2000) // 3000 is the delayed time in milliseconds.
+        }, 2000)
     }
 }

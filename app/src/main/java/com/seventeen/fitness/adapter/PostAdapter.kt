@@ -2,6 +2,7 @@ package com.seventeen.fitness.adapter
 
 import android.content.Context
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -74,7 +75,7 @@ class PostAdapter(
                 holder.like.startAnimation(popAnim)
                 liked = true
                 holder.like.setImageResource(R.drawable.ic_liked)
-                Handler().postDelayed({
+                Handler(Looper.getMainLooper()).postDelayed({
                     holder.likeOnPost.visibility = View.GONE
                 },1000)
             }
@@ -87,7 +88,7 @@ class PostAdapter(
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name = itemView.findViewById<TextView>(R.id.brand_name)
+        val name: TextView = itemView.findViewById(R.id.brand_name)
         val logo = itemView.findViewById<ImageView>(R.id.logo)
         val photo = itemView.findViewById<ImageView>(R.id.post_img)
         val likes = itemView.findViewById<TextView>(R.id.likes_txt)
