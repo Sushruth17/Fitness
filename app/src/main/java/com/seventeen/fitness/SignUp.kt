@@ -51,9 +51,11 @@ class SignUp : AppCompatActivity() {
                         val uid = user!!.uid
                         mDatabase.child(uid).child("userName").setValue(username)
                         mDatabase.child(uid).child("userId").setValue(uid)
-                        mDatabase.child(uid).child("followers").setValue("0")
-                        mDatabase.child(uid).child("following").setValue("0")
+                        mDatabase.child(uid).child("countFollowers").setValue("0")
+                        mDatabase.child(uid).child("countFollowing").setValue("0")
+                        mDatabase.child(uid).child("countPosts").setValue("0")
                         mDatabase.child(uid).child("statusProfileImg").setValue(UtilsString.NOT_UPLOADED)
+                        PrefUtils.save(this, UtilsString.USERNAME, username)
                         PrefUtils.save(this, UtilsString.LOGGED_IN, true)
                         startActivity(Intent(this, MainActivity::class.java))
                         Toast.makeText(this, "Successfully registered", Toast.LENGTH_LONG).show()

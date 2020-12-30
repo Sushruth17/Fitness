@@ -29,19 +29,10 @@ class DashboardAdapter1(val context: Context): RecyclerView.Adapter<DashboardAda
     }
 
     lateinit var view : ViewHolder
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-            ViewHolder {
-        when(type) {
-            UtilsString.BEGINNER ->
-                view = ViewHolder(LayoutInflater.from(parent.context).inflate
-                            (R.layout.unit_home_1, parent, false))
-            UtilsString.INTERMEDIATE ->
-                view = ViewHolder(LayoutInflater.from(parent.context).inflate
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+
+        view = ViewHolder(LayoutInflater.from(parent.context).inflate
                     (R.layout.unit_home_1, parent, false))
-            UtilsString.ADVANCED ->
-                view = ViewHolder(LayoutInflater.from(parent.context).inflate
-                    (R.layout.unit_home_1, parent, false))
-        }
         return view
     }
 
@@ -55,7 +46,6 @@ class DashboardAdapter1(val context: Context): RecyclerView.Adapter<DashboardAda
             UtilsString.BEGINNER -> {
                 holder.unitRoot.setBackgroundResource(R.drawable.dashboad_ui1)
                 holder.unitHomeTxt1.setTextColor(context.resources.getColor(R.color.colorPrimary))
-
             }
             UtilsString.INTERMEDIATE -> {
                 holder.unitRoot.setBackgroundResource(R.drawable.dashboad_ui2)

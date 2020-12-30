@@ -12,7 +12,7 @@ import com.seventeen.fitness.R
 import com.seventeen.fitness.model.Story
 
 class StoryAdapter2(
-    private val activity: Context,
+    private val context: Context,
     private val statusList: ArrayList<Story>)
     : RecyclerView.Adapter<StoryAdapter2.ViewHolder>() {
 
@@ -37,7 +37,7 @@ class StoryAdapter2(
         p0.name?.text = statusList[p1].name
         p0.name.visibility = View.VISIBLE
 
-        Glide.with(activity)
+        Glide.with(context)
             .load(statusList[p1].picture)
             .into(p0.photo)
     }

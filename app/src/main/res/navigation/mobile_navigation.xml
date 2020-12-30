@@ -11,6 +11,11 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.seventeen.fitness.fragments.SearchFragment"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.seventeen.fitness.fragments.DashboardFragment"
         tools:layout="@layout/fragment_dashboard" />

@@ -14,9 +14,12 @@ import com.bumptech.glide.Glide
 import com.seventeen.fitness.R
 import com.seventeen.fitness.model.Post
 import com.seventeen.fitness.utils.DoubleClickListener
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class PostAdapter(
-    private val activity: Context,
+    private val context: Context,
     private val postList: ArrayList<Post>
 )
     : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
@@ -38,26 +41,37 @@ class PostAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val popAnim = AnimationUtils.loadAnimation(activity, R.anim.pop)
+        val popAnim = AnimationUtils.loadAnimation(context, R.anim.pop)
 
         holder.name.text = postList[position].name
         holder.likes.text = postList[position].likes +" "+"likes"
         holder.description.text = postList[position].description
 
-        Glide.with(activity)
+        Glide.with(context)
             .load(postList[position].logo)
             .into(holder.logo)
 
-        Glide.with(activity)
+        Glide.with(context)
             .load(postList[position].photo)
             .into(holder.photo)
 
+        
+        var likesInt = postList[position].likes.filter { it.isDigit() }.toInt()
+
+
         holder.like.setOnClickListener {
+
             holder.like.startAnimation(popAnim)
             if (!liked) { liked = true
-                holder.like.setImageResource(R.drawable.ic_liked) }
+                holder.like.setImageResource(R.drawable.ic_liked)
+                likesInt += 1
+                holder.likes.text = ("${numFormat(likesInt)} likes")
+            }
             else{ liked = false
-                holder.like.setImageResource(R.drawable.ic_like) }
+                holder.like.setImageResource(R.drawable.ic_like)
+                likesInt -= 1
+                holder.likes.text = ("${numFormat(likesInt)} likes")
+            }
         }
 
         holder.save.setOnClickListener {
@@ -72,9 +86,12 @@ class PostAdapter(
             override fun onDoubleClick(v: View) {
                 holder.likeOnPost.visibility = View.VISIBLE
                 holder.likeOnPost.startAnimation(popAnim)
-                holder.like.startAnimation(popAnim)
-                liked = true
-                holder.like.setImageResource(R.drawable.ic_liked)
+//                holder.like.startAnimation(popAnim)
+                if (!liked) { liked = true
+                    holder.like.setImageResource(R.drawable.ic_liked)
+                    likesInt += 1
+                    holder.likes.text = ("${numFormat(likesInt)} likes")
+                }
                 Handler(Looper.getMainLooper()).postDelayed({
                     holder.likeOnPost.visibility = View.GONE
                 },1000)
@@ -97,5 +114,9 @@ class PostAdapter(
         val save = itemView.findViewById<ImageView>(R.id.save)
         val likeOnPost = itemView.findViewById<ImageView>(R.id.like_on_post)
         val moreDescriptionTxt = itemView.findViewById<TextView>(R.id.description_more)
+    }
+
+    fun numFormat(number: Int): String {
+        return NumberFormat.getNumberInstance(Locale.US).format(number).toString()
     }
 }
