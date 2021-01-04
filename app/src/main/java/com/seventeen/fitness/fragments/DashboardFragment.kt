@@ -1,5 +1,6 @@
 package com.seventeen.fitness.fragments
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,16 +10,18 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.seventeen.fitness.DetailedExercise
 import com.seventeen.fitness.R
 import com.seventeen.fitness.adapter.DashboardAdapter1
+import com.seventeen.fitness.utils.RecyclerItemClickListener
 import com.seventeen.fitness.utils.UtilsString
 
 class DashboardFragment : Fragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
@@ -37,31 +40,44 @@ class DashboardFragment : Fragment() {
         collapsingToolbar.setCollapsedTitleTypeface(Typeface.DEFAULT_BOLD)
         collapsingToolbar.setExpandedTitleTypeface(Typeface.DEFAULT_BOLD)
 
-        val fitnessTypeList = listOf("ABS","CHEST","ARM","LEG","SHOULDER \n & BACK")
+        val fitnessTypeList = listOf("ABS", "CHEST", "ARM", "LEG", "SHOULDER \n & BACK")
 
 
         val rvDashboard1 = getView()?.findViewById<RecyclerView>(R.id.rv_dashboard_1)
         val dashboardAdapter1 = DashboardAdapter1(requireContext())
-        dashboardAdapter1.setDataCustom(fitnessTypeList,UtilsString.BEGINNER)
-        rvDashboard1?.layoutManager  = LinearLayoutManager(
+        dashboardAdapter1.setDataCustom(fitnessTypeList, UtilsString.BEGINNER)
+        rvDashboard1?.layoutManager = LinearLayoutManager(
             activity, LinearLayoutManager.HORIZONTAL, false)
         rvDashboard1?.adapter = dashboardAdapter1
 
 
         val rvDashboard2 = getView()?.findViewById<RecyclerView>(R.id.rv_dashboard_2)
         val dashboardAdapter2 = DashboardAdapter1(requireContext())
-        dashboardAdapter2.setDataCustom(fitnessTypeList,UtilsString.INTERMEDIATE)
-        rvDashboard2?.layoutManager  = LinearLayoutManager(
+        dashboardAdapter2.setDataCustom(fitnessTypeList, UtilsString.INTERMEDIATE)
+        rvDashboard2?.layoutManager = LinearLayoutManager(
             activity, LinearLayoutManager.HORIZONTAL, false)
         rvDashboard2?.adapter = dashboardAdapter2
 
 
         val rvDashboard3 = getView()?.findViewById<RecyclerView>(R.id.rv_dashboard_3)
         val dashboardAdapter3 = DashboardAdapter1(requireContext())
-        dashboardAdapter3.setDataCustom(fitnessTypeList,UtilsString.ADVANCED)
-        rvDashboard3?.layoutManager  = LinearLayoutManager(
+        dashboardAdapter3.setDataCustom(fitnessTypeList, UtilsString.ADVANCED)
+        rvDashboard3?.layoutManager = LinearLayoutManager(
             activity, LinearLayoutManager.HORIZONTAL, false)
         rvDashboard3?.adapter = dashboardAdapter3
 
+
+        rvDashboard1?.addOnItemTouchListener(RecyclerItemClickListener
+            (requireActivity(), rvDashboard1, object :
+            RecyclerItemClickListener.OnItemClickListener {
+            override fun onItemClick(view: View, position: Int) {
+                startActivity(Intent(requireContext(), DetailedExercise::class.java))
+            }
+
+            override fun onItemLongClick(view: View?, position: Int) {
+                TODO("Not yet implemented")
+            }
+
+        }))
     }
 }
